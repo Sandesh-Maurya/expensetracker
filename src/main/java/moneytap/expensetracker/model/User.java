@@ -26,8 +26,8 @@ public class User {
      @OneToMany(targetEntity = User.class, cascade = CascadeType.ALL)
      private  Set<Expense> expenses;
 
-    public User(Integer userID, String s, String s1) {
-    }
+//    public User(Integer userID, String s, String s1) {
+//    }
 //    @JoinTable(name="user_expense",joinColumns = @JoinColumn(name="user_id"),inverseJoinColumns = @JoinColumn(name="expense_id"))
 
 }

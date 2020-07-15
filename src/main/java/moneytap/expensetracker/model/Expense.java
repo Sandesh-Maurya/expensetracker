@@ -28,7 +28,7 @@ public class Expense {
         this.date = date;
         this.price = price;
         this.expenseDetails = expenseDetails;
-        this.users = new User(UserID,"","");
+        this.users = new User(UserID,"","",null);
         this.category = new Category(c_Id,"");
     }
 
