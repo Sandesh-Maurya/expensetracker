@@ -24,7 +24,10 @@ public class User {
     private String password;
     @JsonIgnore
      @OneToMany(targetEntity = User.class, cascade = CascadeType.ALL)
-     @JoinTable(name="user_expense",joinColumns = @JoinColumn(name="user_id"),inverseJoinColumns = @JoinColumn(name="expense_id"))
      private  Set<Expense> expenses;
+
+    public User(Integer userID, String s, String s1) {
+    }
+//    @JoinTable(name="user_expense",joinColumns = @JoinColumn(name="user_id"),inverseJoinColumns = @JoinColumn(name="expense_id"))
 
 }

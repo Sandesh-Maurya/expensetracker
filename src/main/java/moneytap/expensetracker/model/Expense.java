@@ -23,7 +23,16 @@ public class Expense {
     private Integer price;
     private String  expenseDetails;
 
-//
+    public Expense(Integer id, Instant date, Integer price, String expenseDetails, Integer UserID, Category category) {
+        this.id = id;
+        this.date = date;
+        this.price = price;
+        this.expenseDetails = expenseDetails;
+        this.users = new User(UserID,"","");
+        this.category = category;
+    }
+
+    //
 //    @ManyToOne(cascade = CascadeType.PERSIST)
 //    @JoinTable(name="user_expense",joinColumns = @JoinColumn(name="expense_id"),inverseJoinColumns = @JoinColumn(name="user_id"))
 //    private User user;
