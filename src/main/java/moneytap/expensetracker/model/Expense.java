@@ -27,7 +27,8 @@ public class Expense {
 //    @ManyToOne(cascade = CascadeType.PERSIST)
 //    @JoinTable(name="user_expense",joinColumns = @JoinColumn(name="expense_id"),inverseJoinColumns = @JoinColumn(name="user_id"))
 //    private User user;
-
+    @ManyToOne
+    private  User users;
     @ManyToOne(cascade = CascadeType.ALL)
     private Category category;
 
