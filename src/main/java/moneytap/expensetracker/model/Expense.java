@@ -1,5 +1,6 @@
 package moneytap.expensetracker.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,10 +8,11 @@ import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.Set;
 
-//@NoArgsConstructor
-//@Data
-//@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@AllArgsConstructor
 @Entity
 @Table(name="expense")
 public class Expense {
@@ -20,64 +22,15 @@ public class Expense {
     private Instant date;
     private Integer price;
     private String  expenseDetails;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinTable(name="user_expense",joinColumns = @JoinColumn(name="expense_id"),inverseJoinColumns = @JoinColumn(name="user_id"))
-    private User user;
 
-    public Expense() {
-    }
-
-    public Expense(Integer id, Instant date, Integer price, String expenseDetails, User user) {
-        this.id = id;
-        this.date = date;
-        this.price = price;
-        this.expenseDetails = expenseDetails;
-        this.user = user;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Instant getDate() {
-        return date;
-    }
-
-    public void setDate(Instant date) {
-        this.date = date;
-    }
-
-    public Integer getPrice() {
-        return price;
-    }
-
-    public void setPrice(Integer price) {
-        this.price = price;
-    }
-
-    public String getExpenseDetails() {
-        return expenseDetails;
-    }
-
-    public void setExpenseDetails(String expenseDetails) {
-        this.expenseDetails = expenseDetails;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-    //    @ManyToOne
-//    private Category category;
-////
-//    @ManyToOne
+//    @JsonIgnore
+//    @ManyToOne(cascade = CascadeType.PERSIST)
+//    @JoinTable(name="user_expense",joinColumns = @JoinColumn(name="expense_id"),inverseJoinColumns = @JoinColumn(name="user_id"))
 //    private User user;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Category category;
+
+
 
 }
