@@ -23,10 +23,11 @@ public class Expense {
     private Integer price;
     private String  expenseDetails;
 
-//    @JsonIgnore
+//
 //    @ManyToOne(cascade = CascadeType.PERSIST)
 //    @JoinTable(name="user_expense",joinColumns = @JoinColumn(name="expense_id"),inverseJoinColumns = @JoinColumn(name="user_id"))
 //    private User user;
+    @JsonIgnore
     @ManyToOne
     private  User users;
     @ManyToOne(cascade = CascadeType.ALL)
