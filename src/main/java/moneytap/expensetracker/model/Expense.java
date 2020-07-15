@@ -23,13 +23,13 @@ public class Expense {
     private Integer price;
     private String  expenseDetails;
 
-    public Expense(Integer id, Instant date, Integer price, String expenseDetails, Integer UserID, Category category) {
+    public Expense(Integer id, Instant date, Integer price, String expenseDetails, Integer UserID, Integer c_Id) {
         this.id = id;
         this.date = date;
         this.price = price;
         this.expenseDetails = expenseDetails;
         this.users = new User(UserID,"","");
-        this.category = category;
+        this.category = new Category(c_Id,"");
     }
 
     //
