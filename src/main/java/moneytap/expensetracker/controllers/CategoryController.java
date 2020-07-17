@@ -35,7 +35,7 @@ public class CategoryController {
     @PostMapping("/category")
     ResponseEntity<Category> createCategory(@Valid @RequestBody Category category) throws URISyntaxException {
         Category result= categoryRepository.save(category);
-        return ResponseEntity.created(new URI("/category" + result.getId())).body(result);
+        return ResponseEntity.created(new URI("/category" + result.getCid())).body(result);
 
     }
 

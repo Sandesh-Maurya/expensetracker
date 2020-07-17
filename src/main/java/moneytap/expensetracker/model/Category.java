@@ -12,7 +12,8 @@ import javax.persistence.*;
 @Table(name="category")
 public class Category {
     @Id
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer cid;
     private String name;
 
 
