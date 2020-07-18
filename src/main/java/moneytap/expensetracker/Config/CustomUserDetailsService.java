@@ -11,14 +11,15 @@ import moneytap.expensetracker.model.User;
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        User user=userRepository.findByName(s);
-        CustomUserDetails customUserDetails=null;
-        if(user!=null){
+        User users=userRepository.findByName(s);
+
+       CustomUserDetails customUserDetails;
+        if(users!=null){
             customUserDetails=new CustomUserDetails();
-            customUserDetails.setUser(user);
+            customUserDetails.setUser(users);
 
         }
         else{
