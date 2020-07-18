@@ -25,6 +25,9 @@ public class User {
     @JsonIgnore
      @OneToMany(targetEntity = User.class, cascade = CascadeType.ALL)
      private  Set<Expense> expenses;
+    @JsonIgnore
+    @OneToMany(targetEntity = User.class, cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private Set<Role> roles;
 
 //    public User(Integer userID, String s, String s1) {
 //    }
